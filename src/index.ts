@@ -2,7 +2,7 @@ import { isAddress } from '@ethersproject/address';
 import { EnsProvider, Provider } from '@ethersproject/providers';
 import { avatarResolvers, fallbackResolver } from './resolvers';
 
-export const _resolveAvatar = async (
+const resolveAvatar = async (
   provider: Provider & EnsProvider,
   ensName: string,
   address: string
@@ -36,14 +36,14 @@ export const resolveENSAvatar = async (
   if (isAddress(addressOrEns)) {
     const ensName = await provider.lookupAddress(addressOrEns);
     if (ensName !== null) {
-      return _resolveAvatar(provider, ensName, addressOrEns);
+      return resolveAvatar(provider, ensName, addressOrEns);
     } else {
       return null;
     }
   } else {
     const address = await provider.resolveName(addressOrEns);
     if (address !== null) {
-      return _resolveAvatar(provider, addressOrEns, address);
+      return resolveAvatar(provider, addressOrEns, address);
     } else {
       return null;
     }
