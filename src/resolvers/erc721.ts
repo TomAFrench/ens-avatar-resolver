@@ -30,7 +30,7 @@ const resolve = async (provider: Provider, ensName: string, address: string, uri
 
   const tokenURI = await erc721Contract.tokenURI(tokenId);
 
-  const response = await fetch(getGatewayUrl(tokenURI, tokenId.toHexString()));
+  const response = await fetch(getGatewayUrl(tokenURI, tokenId.toHexString().slice(2)));
   return (await response.json()).image;
 };
 
