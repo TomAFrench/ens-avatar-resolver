@@ -1,6 +1,6 @@
 {
   "name": "@tomfrench/ens-avatar-resolver",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Library for resolving avatars attached to ENS names",
   "license": "MIT",
   "homepage": "https://github.com/tomafrench/ens-avatar-resolver#readme",
